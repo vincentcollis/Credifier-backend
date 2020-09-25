@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :username
       t.string :name
       t.float :ranking
+      t.string :image_url
 
       t.timestamps
     end

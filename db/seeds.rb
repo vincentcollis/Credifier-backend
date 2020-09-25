@@ -10,13 +10,11 @@ require 'news-api'
 require 'faker'
 
 10.times do 
-
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
-        ranking: 0.0
+        ranking: 0.0,
+        image_url: Faker::Avatar.image
     )
-
-
 end
 
 n = News.new("5449ae0dc6b04b4890fb7bb10d656485")
@@ -26,9 +24,13 @@ all_articles.each do |article|
 end
 
 10.times do 
-    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: User.all.sample.id)
+    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: rand(1..10), post_id: Post.all.sample.id)
 end
 
 300.times do 
-    Rating.create(score: rand(1..10), rater_id: User.all.sample.id)
+    Rating.create(
+        score: rand(1..10),
+        rater_id: User.all.sample.id,
+        review_id: Review.all.sample.id,
+    )
 end

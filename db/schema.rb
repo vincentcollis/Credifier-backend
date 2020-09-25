@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "reviews", force: :cascade do |t|
     t.string "text"
     t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "username"
     t.string "name"
     t.float "ranking"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
