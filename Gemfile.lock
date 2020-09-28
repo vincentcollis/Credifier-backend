@@ -190,7 +190,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   faker!
-  fast_jsonapi (~> 1.5)
+  fast_jsonapi
   listen (~> 3.2)
   news-api
   pg (>= 0.18, < 2.0)

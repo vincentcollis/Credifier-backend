@@ -1,16 +1,22 @@
 class UsersController < ApplicationController
+  
+
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   def index
     @users = User.all
 
-    render json: @users
+    json_string = UserSerializer.new(@users).serialized_json
+    render json: json_string
   end
 
   # GET /users/1
   def show
-    render json: @user
+    @user = User.find(params[:id])
+
+    json_string = UserSerializer.new(@user)
+    render json: json_string
   end
 
   # POST /users
@@ -37,6 +43,9 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
   end
+
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

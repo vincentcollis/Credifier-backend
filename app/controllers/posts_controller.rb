@@ -38,6 +38,36 @@ class PostsController < ApplicationController
     @post.destroy
   end
 
+  def politics
+    @posts = Post.all
+    
+    output = @posts.select do |post|
+      post.topic == "politics"
+    end
+
+    render json: output 
+  end
+
+  def sports
+    @posts = Post.all
+    
+    output = @posts.select do |post|
+      post.topic == "sports"
+    end
+
+    render json: output 
+  end
+
+  def science
+    @posts = Post.all
+    
+    output = @posts.select do |post|
+      post.topic == "science"
+    end
+
+    render json: output 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

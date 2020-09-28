@@ -1,11 +1,10 @@
-# class UserSerializer
-#   include FastJsonapi::ObjectSerializer
+class UserSerializer < ApplicationRecord
+  include FastJsonapi::ObjectSerializer
   
-#   attributes :id, :username. :name, :ranking, :image_url
-# end
+  attributes :username, :name, :ranking, :image_url
 
+  has_many :posts
+  has_many :ratings
+  has_many :raters
 
-# t.string "username"
-# t.string "name"
-# t.float "ranking"
-# t.string "image_url"
+end
