@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    
+
     has_many :reviews
     
     has_many :posts, through: :reviews

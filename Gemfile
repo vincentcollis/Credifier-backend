@@ -46,3 +46,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 #news api gem
 gem 'news-api'
+
+#fast_json gem for serializing data
+gem "fast_jsonapi", "~> 1.5"
