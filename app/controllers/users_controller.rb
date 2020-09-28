@@ -6,9 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
-    json_string = UserSerializer.new(@users).serialized_json
-    render json: json_string
+    render json: UserSerializer.new(@users)
   end
 
   # GET /users/1

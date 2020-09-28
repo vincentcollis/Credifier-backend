@@ -1,4 +1,4 @@
-class UserSerializer < ApplicationRecord
+class UserSerializer
   include FastJsonapi::ObjectSerializer
   
   attributes :username, :name, :ranking, :image_url
