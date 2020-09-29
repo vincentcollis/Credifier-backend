@@ -30,8 +30,9 @@ topic.each do |t|
 end
 
 ## Seed user reviews
+rank = [red, yellow, green]
 50.times do 
-    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: rand(1..10), post_id: Post.all.sample.id)
+    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), ranking: (rank.sample), user_id: rand(1..10), post_id: Post.all.sample.id)
 end
 
 # Seed user ratings

@@ -4,8 +4,8 @@ class RatingsController < ApplicationController
   # GET /ratings
   def index
     @ratings = Rating.all
-    serializer = RatingSerializer.new(@ratings).serializable_hash
-    render json: serializer
+   
+    render json: @ratings
   end
 
   # GET /ratings/1

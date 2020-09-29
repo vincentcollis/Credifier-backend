@@ -11,11 +11,11 @@ class User < ApplicationRecord
 
     def ranking
         case 
-        when self.my_score < 40
+        when self.my_score < 4
             rank = "red"
-        when self.my_score >= 40 && self.my_score < 70
+        when self.my_score >= 4 && self.my_score < 5
             rank = "yellow"
-        when self.my_score >= 70
+        when self.my_score <= 10
             rank = "green"
         end
     end

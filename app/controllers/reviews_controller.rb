@@ -4,8 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   def index
     @reviews = Review.all
-    serializer = ReviewSerializer.new(@reviews).serializable_hash
-    render json: serializer
+    render json: @reviews
   end
 
   # GET /reviews/1
@@ -17,6 +16,7 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
+    
     @review = Review.new(review_params)
 
     if @review.save
@@ -48,6 +48,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def review_params
-      params.require(:review).permit(:text)
+      params.require(:review).permit(:text, :user_id, :post_id)
     end
 end

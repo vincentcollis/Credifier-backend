@@ -14,6 +14,8 @@ class PostsController < ApplicationController
     render json: serializer.serializable_hash
   end
 
+  
+
   # POST /posts
   def create
     @post = Post.new(post_params)
