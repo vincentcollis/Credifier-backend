@@ -3,8 +3,8 @@ class RatingsController < ApplicationController
 
   # GET /ratings
   def index
-    ratings = Rating.all
-    serializer = RatingSerializer.new(ratings).serializable_hash
+    @ratings = Rating.all
+    serializer = RatingSerializer.new(@ratings).serializable_hash
     render json: serializer
   end
 

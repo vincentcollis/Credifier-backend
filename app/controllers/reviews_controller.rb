@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    reviews = Review.all
-    serializer = ReviewSerializer.new(reviews).serializable_hash
+    @reviews = Review.all
+    serializer = ReviewSerializer.new(@reviews).serializable_hash
     render json: serializer
   end
 
