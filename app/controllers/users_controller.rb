@@ -5,18 +5,17 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    users = User.all
-    
-    serializer = UserSerializer.new(users)
+    @users = User.all
+  
+    serializer = UserSerializer.new(@users)
     render json: serializer.serializable_hash
   end
 
   # GET /users/1
   def show
     @user = User.find(params[:id])
-
-    json_string = UserSerializer.new(@user)
-    render json: json_string
+    serializer = UserSerializer.new(@user)
+    render json: serializer.serializable_hash
   end
 
   # POST /users

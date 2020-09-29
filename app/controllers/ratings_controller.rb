@@ -10,7 +10,9 @@ class RatingsController < ApplicationController
 
   # GET /ratings/1
   def show
-    render json: @rating
+    @rating = Rating.find(params[:id])
+    serializer = RatingSerializer.new(@rating)
+    render json: serializer.serializable_hash
   end
 
   # POST /ratings

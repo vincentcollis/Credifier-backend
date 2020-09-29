@@ -10,12 +10,19 @@ class User < ApplicationRecord
 
 
     def ranking
-        if self.my_score < 30
-            rank = green
+        case 
+        when self.my_score < 40
+            rank = "red"
+        when self.my_score >= 40 && self.my_score < 70
+            rank = "yellow"
+        when self.my_score >= 70
+            rank = "green"
+        end
     end
 
     # Find avg scorce of rating
     def my_score 
+        
         score_array = []
         self.reviews.each do |review|
             review.ratings.each do |rating|
