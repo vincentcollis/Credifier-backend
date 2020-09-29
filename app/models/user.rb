@@ -9,6 +9,11 @@ class User < ApplicationRecord
     has_many :raters, class_name: "Rating", foreign_key: :rater_id, dependent: :destroy
 
 
+    def ranking
+        if self.my_score < 30
+            rank = green
+    end
+
     # Find avg scorce of rating
     def my_score 
         score_array = []
