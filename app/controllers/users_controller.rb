@@ -5,8 +5,10 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
-    render json: UserSerializer.new(@users)
+    users = User.all
+    
+    serializer = UserSerializer.new(users)
+    render json: serializer.serializable_hash
   end
 
   # GET /users/1

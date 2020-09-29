@@ -10,7 +10,7 @@ require 'news-api'
 require 'faker'
 
 ## Seed user instances
-5.times do 
+10.times do 
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
         ranking: 0.0,
@@ -35,7 +35,7 @@ end
 end
 
 # Seed user ratings
-50.times do 
+400.times do 
     Rating.create(
         score: rand(1..10),
         rater_id: User.all.sample.id,
