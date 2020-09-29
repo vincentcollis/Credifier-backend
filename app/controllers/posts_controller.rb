@@ -9,7 +9,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    @post = Post.find(params[:id])
     serializer = PostSerializer.new(@post)
     render json: serializer.serializable_hash
   end

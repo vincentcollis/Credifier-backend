@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  
-
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -11,7 +9,6 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @user = User.find(params[:id])
     serializer = UserSerializer.new(@user)
     render json: serializer.serializable_hash
   end
