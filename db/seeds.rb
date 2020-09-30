@@ -31,7 +31,7 @@ topic.each do |t|
 end
 
 ## Seed user reviews
-50.times do 
+200.times do 
     Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: rand(1..10), post_id: Post.all.sample.id)
 end
 
