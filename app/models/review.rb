@@ -8,7 +8,6 @@ class Review < ApplicationRecord
         score_array = []
         self.ratings.each do |rating|
             score_array << rating.score
-
         end
         
     # (score_array.reduce(:+) / score_array.size).round(2)

@@ -14,26 +14,10 @@ require 'faker'
 20.times do 
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
-        ranking: "red",
         image_url: Faker::Avatar.image
     )
 end
 
-15.times do 
-    User.create(username: Faker::Name.unique.name, 
-        name: Faker::Name.unique.name,
-        ranking: "yellow",
-        image_url: Faker::Avatar.image
-    )
-end
-
-10.times do 
-    User.create(username: Faker::Name.unique.name, 
-        name: Faker::Name.unique.name,
-        ranking: "green",
-        image_url: Faker::Avatar.image
-    )
-end
 
 # Seed news articals 
 topic = ['politics', 'sports', 'science']
@@ -48,7 +32,7 @@ end
 
 ## Seed user reviews
 200.times do 
-    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: rand(1..10), post_id: Post.all.sample.id)
+    Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: User.all.sample.id, post_id: Post.all.sample.id)
 end
 
 # Seed user ratings

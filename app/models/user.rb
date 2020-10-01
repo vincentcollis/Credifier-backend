@@ -18,6 +18,7 @@ class User < ApplicationRecord
         when self.my_score <= 10
             rank = "green"
         end
+        rank
     end
 
     # Find avg scorce of rating
