@@ -10,11 +10,27 @@ require 'news-api'
 require 'faker'
 
 ## Seed user instances
-rank = ["red", "yellow", "green"]
+
+20.times do 
+    User.create(username: Faker::Name.unique.name, 
+        name: Faker::Name.unique.name,
+        ranking: "red",
+        image_url: Faker::Avatar.image
+    )
+end
+
+15.times do 
+    User.create(username: Faker::Name.unique.name, 
+        name: Faker::Name.unique.name,
+        ranking: "yellow",
+        image_url: Faker::Avatar.image
+    )
+end
+
 10.times do 
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
-        ranking: (rank.sample),
+        ranking: "green",
         image_url: Faker::Avatar.image
     )
 end
