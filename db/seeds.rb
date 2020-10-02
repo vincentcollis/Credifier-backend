@@ -11,7 +11,11 @@ require 'faker'
 
 ## Seed user instances
 
+<<<<<<< HEAD
 10.times do 
+=======
+50.times do 
+>>>>>>> ca04e5414000f7a8411f173b3f2111272c15080c
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
         image_url: Faker::Avatar.image
@@ -24,19 +28,19 @@ topic = ['politics', 'sports', 'science']
 topic.each do |t|
     n = News.new("5449ae0dc6b04b4890fb7bb10d656485")
 
-    all_articles = n.get_everything(q: t, from: "2020-09-01&to=2020-09-23", sortBy: "popularity")
+    all_articles = n.get_everything(q: t, from: "2020-09-10&to=2020-09-30", sortBy: "popularity")
     all_articles.each do |article|
         Post.create(title: article.title, source: article.url, image_url: article.urlToImage, reporter: article.author, content: article.content, date: article.publishedAt, topic: t)
     end
 end
 
 ## Seed user reviews
-200.times do 
+40.times do 
     Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: User.all.sample.id, post_id: Post.all.sample.id)
 end
 
 # Seed user ratings
-400.times do 
+100.times do 
     Rating.create(
         score: rand(1..10),
         rater_id: User.all.sample.id,
