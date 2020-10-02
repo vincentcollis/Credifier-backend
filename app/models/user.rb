@@ -28,13 +28,13 @@ class User < ApplicationRecord
 
     def ranking
         if self.my_score < 4
-            rank= "red"
+            rank = "red"
         elsif self.my_score >= 4 && self.my_score < 7
-            rank= "yellow"
+            rank = "yellow"
         elsif self.my_score >= 7
-            rank= "green"
+            rank = "green"
         end
         return rank
-        byebug
+        
     end
 end

@@ -11,11 +11,7 @@ require 'faker'
 
 ## Seed user instances
 
-<<<<<<< HEAD
-10.times do 
-=======
 50.times do 
->>>>>>> ca04e5414000f7a8411f173b3f2111272c15080c
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
         image_url: Faker::Avatar.image
@@ -35,11 +31,12 @@ topic.each do |t|
 end
 
 ## Seed user reviews
-40.times do 
+100.times do 
     Review.create(text: Faker::Lorem.paragraph(sentence_count: 15), user_id: User.all.sample.id, post_id: Post.all.sample.id)
 end
 
 # Seed user ratings
+
 100.times do 
     Rating.create(
         score: rand(1..10),
