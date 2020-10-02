@@ -9,17 +9,7 @@ class User < ApplicationRecord
     has_many :raters, class_name: "Rating", foreign_key: :rater_id, dependent: :destroy
 
 
-    def ranking
-        case 
-        when self.my_score < 4
-            rank = "red"
-        when self.my_score >= 4 && self.my_score < 5
-            rank = "yellow"
-        when self.my_score <= 10
-            rank = "green"
-        end
-        rank
-    end
+
 
     # Find avg scorce of rating
     def my_score 
@@ -30,9 +20,21 @@ class User < ApplicationRecord
                 score_array << rating.score
             end
         end 
-        (score_array.inject{ |sum, el| sum + el }.to_f / score_array.size).round(2)
+        return (score_array.inject{ |sum, el| sum + el }.to_f / score_array.size).round(1)
         
         # (score_array.reduce(:+) / (score_array.size)).round(2)
         # avg_score.round(2)
+    end
+
+    def ranking
+        if self.my_score < 4
+            rank= "red"
+        elsif self.my_score >= 4 && self.my_score < 7
+            rank= "yellow"
+        elsif self.my_score >= 7
+            rank= "green"
+        end
+        return rank
+        byebug
     end
 end
