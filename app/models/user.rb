@@ -20,8 +20,12 @@ class User < ApplicationRecord
                 score_array << rating.score
             end
         end 
-        return (score_array.inject{ |sum, el| sum + el }.to_f / score_array.size).round(1)
-        
+
+        if score_array.length == 0
+            return 0
+        else
+            return (score_array.inject{ |sum, el| sum + el }.to_f / score_array.size).round(1)
+        end
         # (score_array.reduce(:+) / (score_array.size)).round(2)
         # avg_score.round(2)
     end
