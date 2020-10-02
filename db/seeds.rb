@@ -11,7 +11,7 @@ require 'faker'
 
 ## Seed user instances
 
-20.times do 
+10.times do 
     User.create(username: Faker::Name.unique.name, 
         name: Faker::Name.unique.name,
         image_url: Faker::Avatar.image
