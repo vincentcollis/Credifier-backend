@@ -1,25 +1,30 @@
 class PostSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :content, :source, :image_url, :reporter, :topic, :title, :date, :users, :id
+  attributes :content, :source, :image_url, :reporter, :topic, :title, :date, :id
 
-  attributes :reviews do |object|
-    object.reviews.reverse()
-  end 
   attributes :custom_reviews do |object|
-    reviews_arr = []
     object.reviews.map do |review|
-      reviews_arr << review.review_rating
+      { id: review.id,
+        review_rating: review.review_rating,
+        user_id: review.user_id,
+        text: review.text,
+        post_id: review.post_id
+      
+    
+    }
     end 
-    reviews_arr.reverse()
   end 
 
-  attributes :user_rankings do |object|
-    ranking_arr = []
+  attributes :custom_users do |object|
+    
     object.users.map do |user|
       
-    ranking_arr << [user.ranking]
+    { id: user.id,
+      user_ranking: user.ranking,
+      image_url: user.image_url,
+      username: user.username
+    }
     end 
-    ranking_arr
 
   end 
     
